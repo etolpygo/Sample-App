@@ -1,4 +1,7 @@
 Cs232demo::Application.routes.draw do
+  get "ccsf_rails/index"
+  get "ccsf_rails/links"
+  get "ccsf_rails/about"
   get "welcome/index"
   root 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.

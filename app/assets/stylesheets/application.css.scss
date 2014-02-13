@@ -11,3 +11,18 @@
  *= require_self
  *= require_tree .
  */
+
+
+$font-stack: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+$light-bg-color: #98D9D5;
+$emphasis-bg-color: #55D9D0;
+$text-color: #002B28;
+$lowlight-color: #133734;
+$highlight-color: #00554E;
+
+
+body {
+  font: 100% $font-stack;
+  background-color: $light-bg-color;
+  color: $text-color;
+}
