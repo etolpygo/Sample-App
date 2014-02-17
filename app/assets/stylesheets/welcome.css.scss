@@ -3,4 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+@import "color_scheme.css.scss";
+
+p.welcome { 
+	color: $tertiary-color-dark;  
+	background-color: $tertiary-color-medium-light;
+	border: 3px double $secondary-color-dark;
+	padding: 5px;
+}
 

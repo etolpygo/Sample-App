@@ -8,7 +8,13 @@
 </head>
 <body>
 
-<%= yield %>
+	<header>
+		<%= render :partial => 'ccsf_rails/menu'  %>
+	</header>
+
+	<div id="main">
+		<%= yield %>
+	</div>
 
 </body>
 </html>

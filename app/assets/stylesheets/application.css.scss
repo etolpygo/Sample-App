@@ -14,15 +14,26 @@
 
 
 $font-stack: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
-$light-bg-color: #98D9D5;
-$emphasis-bg-color: #55D9D0;
-$text-color: #002B28;
-$lowlight-color: #133734;
-$highlight-color: #00554E;
 
+
+@import "color_scheme.css.scss";
 
 body {
-  font: 100% $font-stack;
-  background-color: $light-bg-color;
-  color: $text-color;
+  font: 110% $font-stack;
+  background-color: $primary-color-light;
+  color: $primary-color-dark;
+}
+
+div#main { 
+	background-color: $tertiary-color-light;
+	border: 3px double $secondary-color-medium-dark;
+	padding: 10px;
+}
+
+div#main h1 { color: $secondary-color-medium; }
+
+header { 
+	background-color: $secondary-color-medium;
+	border: 3px double $secondary-color-dark;
+	margin:0; padding:0;
 }
