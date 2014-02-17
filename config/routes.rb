@@ -3,6 +3,7 @@ Cs232demo::Application.routes.draw do
   get "welcome/index"
   root 'welcome#index'
   
+  get "ccsf_rails/index"
   get "ccsf_rails/help"
   get "ccsf_rails/links"
   get "ccsf_rails/about"
