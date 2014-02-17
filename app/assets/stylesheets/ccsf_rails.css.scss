@@ -1,0 +1,30 @@
+// Place all the styles related to the ccsf_rails controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "color_scheme.css.scss";
+
+div#menu_container { 
+	background-color: $secondary-color-medium; 
+	margin-bottom: 0px; 
+	padding: 5px; 
+	ul#nav_menu { 
+		list-style-type: none; 
+		margin:0; 
+		padding:0; 
+		li { 
+			display:inline; margin:0; padding:0; 
+			a { 
+				color: $tertiary-color-light; 
+				display:float-left;
+				padding: 5px 15px;
+				text-decoration: none;
+			}
+			a:hover { 
+				color: $tertiary-color-light; 
+				background-color: $secondary-color-dark;
+				text-decoration: underline;
+			}
+		}
+	}
+}

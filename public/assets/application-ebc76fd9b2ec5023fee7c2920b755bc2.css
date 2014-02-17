@@ -1,0 +1,69 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+/* teals */
+/* cherry plums */
+/* beiges */
+body {
+  font: 110% "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+  background-color: #91afad;
+  color: #091f1e; }
+
+div#main {
+  background-color: #dedac8;
+  border: 3px double #2c1824;
+  padding: 10px; }
+
+div#main h1 {
+  color: #351729; }
+
+header {
+  background-color: #351729;
+  border: 3px double #280c1d;
+  margin: 0;
+  padding: 0; }
+/* teals */
+/* cherry plums */
+/* beiges */
+div#menu_container {
+  background-color: #351729;
+  margin-bottom: 0px;
+  padding: 5px; }
+  div#menu_container ul#nav_menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+    div#menu_container ul#nav_menu li {
+      display: inline;
+      margin: 0;
+      padding: 0; }
+      div#menu_container ul#nav_menu li a {
+        color: #dedac8;
+        display: float-left;
+        padding: 5px 15px;
+        text-decoration: none; }
+      div#menu_container ul#nav_menu li a:hover {
+        color: #dedac8;
+        background-color: #280c1d;
+        text-decoration: underline; }
+/* teals */
+/* cherry plums */
+/* beiges */
+/* teals */
+/* cherry plums */
+/* beiges */
+p.welcome {
+  color: #332c0f;
+  background-color: #bcaf75;
+  border: 3px double #280c1d;
+  padding: 5px; }
