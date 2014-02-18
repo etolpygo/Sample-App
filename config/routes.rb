@@ -1,5 +1,9 @@
 Cs232demo::Application.routes.draw do
 
+  resources :microposts
+
+  resources :users
+
   get "welcome/index"
   root 'welcome#index'
   
