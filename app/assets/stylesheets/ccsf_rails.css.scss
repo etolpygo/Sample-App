@@ -7,16 +7,22 @@
 div#menu_container { 
 	background-color: $secondary-color-medium; 
 	margin-bottom: 0px; 
-	padding: 5px; 
+	// padding: 5px; 
 	ul#nav_menu { 
 		list-style-type: none; 
 		margin:0; 
 		padding:0; 
+		position: relative;
+		display: inline-table;
 		li { 
-			display:inline; margin:0; padding:0; 
+			// display:inline; 
+			margin:0; 
+			padding:0; 
+			float: left;
 			a { 
 				color: $tertiary-color-light; 
-				display:float-left;
+				// display:float-left;
+				display: block;
 				padding: 5px 15px;
 				text-decoration: none;
 			}
@@ -25,6 +31,23 @@ div#menu_container {
 				background-color: $secondary-color-dark;
 				text-decoration: underline;
 			}
+			ul {
+				display: none;
+			}
+		}
+		li:hover > ul {
+			display: block;
+			position: absolute; top: 100%;
+			li {
+				background-color: $secondary-color-medium;
+				border: 1px solid $secondary-color-medium-dark;
+				float: none; 
+				display: block;
+				position: relative;
+			}
 		}
 	}
+	// ul#nav_menu:after {
+	// 		content: ""; clear: both; display: block;
+	// 	}
 }
