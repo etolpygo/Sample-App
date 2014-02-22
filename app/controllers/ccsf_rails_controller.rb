@@ -1,6 +1,5 @@
 class CcsfRailsController < ApplicationController
   def index
-    @title = 'Index'
   end
 
   def links
