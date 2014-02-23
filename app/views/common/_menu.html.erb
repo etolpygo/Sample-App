@@ -4,11 +4,12 @@
 	<li><%= link_to "Users", :controller => :users, :action => :index %></li>
 	<li><%= link_to "Microposts", :controller => :microposts, :action => :index %></li>
 	<li>
-		<%= link_to "CCSF Rails Index", :controller => :ccsf_rails, :action => :index %>
+		<%= link_to "Static Pages Index", :controller => :static_pages, :action => :index %>
 		<ul>
-			<li><%= link_to "About", :controller => :ccsf_rails, :action => :about %></li>
-			<li><%= link_to "Links", :controller => :ccsf_rails, :action => :links %></li>
-			<li><%= link_to "Help", :controller => :ccsf_rails, :action => :help %></li>
+			<li><%= link_to "About", :controller => :static_pages, :action => :about %></li>
+			<li><%= link_to "Links", :controller => :static_pages, :action => :links %></li>
+			<li><%= link_to "Contact", :controller => :static_pages, :action => :contact %></li>
+			<li><%= link_to "Help", :controller => :static_pages, :action => :help %></li>
 		</ul>
 	</li>
 </ul>

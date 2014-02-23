@@ -7,10 +7,11 @@ Cs232demo::Application.routes.draw do
   get "welcome/index"
   root 'welcome#index'
   
-  get "ccsf_rails/index"
-  get "ccsf_rails/help"
-  get "ccsf_rails/links"
-  get "ccsf_rails/about"
+  get "static_pages/index"
+  get "static_pages/help"
+  get "static_pages/links"
+  get "static_pages/about"
+  get "static_pages/contact"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

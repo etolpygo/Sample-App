@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CcsfRailsControllerTest < ActionController::TestCase
+class StaticPagesControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success

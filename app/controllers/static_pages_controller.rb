@@ -1,4 +1,4 @@
-class CcsfRailsController < ApplicationController
+class StaticPagesController < ApplicationController
   def index
   end
 
@@ -6,6 +6,9 @@ class CcsfRailsController < ApplicationController
   end
 
   def about
+  end
+  
+  def contact
   end
   
   def help
