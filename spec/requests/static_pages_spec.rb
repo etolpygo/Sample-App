@@ -15,8 +15,11 @@ describe "StaticPages" do
     it "should have a welcome paragraph" do
        expect(page).to have_css('p.welcome') 
     end
-    it "should have the title 'Hello'" do
-      expect(page).to have_title("#{base_title} | Hello")
+    it "should have the base title" do
+      expect(page).to have_title("#{base_title}")
+    end
+    it "should not have a custom title" do
+      expect(page).not_to have_title("Hello")
     end
     it "should have the nav bar" do
       expect(page).to have_css("ul#nav_menu")
