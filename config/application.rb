@@ -24,5 +24,8 @@ module Cs232demo
       g.test_framework :rspec
     end
     
+    config.i18n.enforce_available_locales = true
+    
+    
   end
 end

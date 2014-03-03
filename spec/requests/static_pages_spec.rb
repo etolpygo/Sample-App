@@ -30,12 +30,12 @@ describe "StaticPages" do
     before do 
       visit '/static_pages/index'
     end
-    it "should have the content 'Index'" do
-      expect(page).to have_content('Index')
+    it "should have the content 'Static Pages Index'" do
+      expect(page).to have_content('Static Pages Index')
     end
     it "should be listed in the nav bar" do
       within('ul#nav_menu') do
-        page.should have_content('Index') 
+        page.should have_content('Static Pages Index') 
       end
     end
   end
