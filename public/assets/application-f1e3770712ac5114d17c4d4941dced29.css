@@ -1,0 +1,140 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+/* teals */
+/* cherry plums */
+/* beiges */
+html, body {
+  font: 120% "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+  color: #091f1e;
+  background-color: #9cb7b5; }
+
+div#main {
+  background-color: #dedac8;
+  border: 3px double #2c1824;
+  padding: 10px; }
+
+div#main h1 {
+  color: #351729; }
+
+header {
+  background-color: #351729;
+  border: 3px double #280c1d;
+  margin: 0;
+  padding: 0; }
+/* teals */
+/* cherry plums */
+/* beiges */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px; }
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px; }
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px; }
+
+a {
+  color: #000; }
+  a:visited {
+    color: #666; }
+  a:hover {
+    color: #fff;
+    background-color: #000; }
+
+div.field, div.actions {
+  margin-bottom: 10px; }
+
+#notice {
+  color: green; }
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table; }
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0; }
+  #error_explanation h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff; }
+  #error_explanation ul li {
+    font-size: 12px;
+    list-style: square; }
+/* teals */
+/* cherry plums */
+/* beiges */
+dt {
+  font-weight: bold; }
+
+nav {
+  background-color: #351729;
+  margin-bottom: 0px; }
+  nav ul#nav_menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: inline-table; }
+    nav ul#nav_menu li {
+      margin: 0;
+      padding: 0;
+      float: left; }
+      nav ul#nav_menu li a {
+        color: #dedac8;
+        display: block;
+        padding: 5px 15px;
+        text-decoration: none; }
+      nav ul#nav_menu li a:hover {
+        color: #dedac8;
+        background-color: #280c1d;
+        text-decoration: underline; }
+      nav ul#nav_menu li ul {
+        display: none; }
+    nav ul#nav_menu li:hover > ul {
+      display: block;
+      position: absolute;
+      top: 100%; }
+      nav ul#nav_menu li:hover > ul li {
+        background-color: #351729;
+        border: 1px solid #2c1824;
+        float: none;
+        display: block;
+        position: relative; }
+/* teals */
+/* cherry plums */
+/* beiges */
+p.welcome {
+  color: #332c0f;
+  background-color: #bcaf75;
+  border: 3px double #280c1d;
+  padding: 5px; }
