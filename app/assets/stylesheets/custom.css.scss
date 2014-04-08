@@ -1,0 +1,126 @@
+@import 'bootstrap';
+
+@import url(http://fonts.googleapis.com/css?family=Della+Respira|Tangerine|Inconsolata:400,700);
+
+@import "color_scheme.css.scss";
+
+html, body {
+	color: $teal-dark;
+	background-color: $teal-light;
+	font-family: 'Inconsolata'; 
+}
+
+div#outer-container { 
+	margin: 5px;
+	background-color: $beige-light;
+	}
+
+#logo { font-family: 'Tangerine'; 
+		font-weight: 800; 
+		font-size: 30px; 
+		color: $beige-medium-light; 
+		padding: 0px 10px;
+		&:hover { background-color: $cherry-plum-medium; } }
+
+h1,h2,h3,h4,h5 { 
+	font-family: Tangerine;
+    font-weight:400;
+	line-height: 1; }
+
+dt { font-weight: bold; }
+
+header { 
+	background-color: $cherry-plum-medium; 
+	margin-bottom: 0px; 
+	height: 30px;
+	border: 3px double $cherry-plum-dark;
+	margin:0; 
+	padding:0;
+	padding-top: 5px;
+	nav#nav-top {
+		margin:0; 
+		padding:0; 
+		position: absolute; top: 7px; right: 5px;
+		ul#nav_menu { 
+			list-style-type: none; 
+			margin:0; 
+			padding:0; 
+			position: relative;
+			display: inline-table;
+			float: right;
+			font-weight: bold;
+			li { 
+				margin:0; 
+				padding:0; 
+				float: left;
+				a { 
+					color: $beige-light; 
+					display: block;
+					padding: 5px 15px;
+					text-decoration: none;
+				}
+				a:hover { 
+					color: $teal-light; 
+					text-decoration: underline;
+				}
+				ul {
+					display: none;
+				}
+			}
+			li:hover > ul {
+				display: block;
+				position: absolute; top: 100%; right: 0px;
+				li {
+					background-color: $cherry-plum-medium;
+					border: 1px solid $cherry-plum-medium-dark;
+					float: none; 
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+div#main { 
+	background-color: $beige-light;
+	padding: 10px;
+	font-family: Inconsolata;
+	h1 { color: $cherry-plum-medium; }	
+	border: 3px double $cherry-plum-medium-dark;
+}
+
+div#push { min-height: 25px; height: 25px; }
+footer { 
+	background-color: $teal-medium; 
+	margin-top: 0px; 
+	height: 20px;
+	border: 3px double $cherry-plum-dark;
+	margin:0; 
+	padding:0;
+	padding-bottom: 5px;
+	span#copyright { 
+		float: left; 
+		padding: 0px 10px; 
+		font-family: 'Inconsolata'; 
+		color: $beige-medium-light; 
+	}
+	ul { 
+		list-style-type: none; 
+		margin:0; 
+		padding: 0px;
+		display: inline-table;
+		float: right;
+		li { 
+			margin:0; 
+			padding:0; 
+			float:left; 
+			a { 
+				color: $beige-light; 
+				display: block;
+				padding: 0px 10px; 
+				text-decoration: none;
+				&:hover { color: $teal-light;  text-decoration: underline; }
+			}
+		}
+	}
+}

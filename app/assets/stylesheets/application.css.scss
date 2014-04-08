@@ -11,28 +11,3 @@
  *= require_self
  *= require_tree .
  */
-
-
-$font-stack: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
-
-@import "color_scheme.css.scss";
-
-html, body {
-   font: 120% $font-stack;
-   color: $primary-color-dark;
-   background-color: $primary-color-light;
- }
-
-div#main { 
-	background-color: $tertiary-color-light;
-	border: 3px double $secondary-color-medium-dark;
-	padding: 10px;
-}
-
-div#main h1 { color: $secondary-color-medium; }
-
-header { 
-	background-color: $secondary-color-medium;
-	border: 3px double $secondary-color-dark;
-	margin:0; padding:0;
-}

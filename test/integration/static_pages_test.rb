@@ -7,13 +7,13 @@ class StaticPagesTest < ActionDispatch::IntegrationTest
   end
   
   
-  class WelcomePageTest < StaticPagesTest
+  class StaticPagesIndexText < StaticPagesTest
     
     def setup
-      get "/welcome/index"
+      get root_path
       super
     end
-    
+  
     test "page has Hello header" do
       assert_tag :tag => 'h1', :content => 'Hello'
       # OR: assert_tag :h1, :content => 'Hello'
@@ -34,28 +34,10 @@ class StaticPagesTest < ActionDispatch::IntegrationTest
   end
   
   
-  class StaticPagesIndexText < StaticPagesTest
-    
-    def setup
-      get "/static_pages/index"
-      super
-    end
-  
-    test "page has content 'Static Pages Index'" do  
-      assert response.body.include?('Static Pages Index')
-    end
-    test "page is listed in the nav bar" do
-      assert_tag :li, :content => 'Static Pages Index',
-        :ancestor => { :tag => "ul", :attributes => { :id => "nav_menu" } }
-    end
-    
-  end
-  
-  
   class AboutPageTest < StaticPagesTest
     
     def setup
-      get '/static_pages/about'
+      get about_path
       super
     end
     
@@ -72,7 +54,7 @@ class StaticPagesTest < ActionDispatch::IntegrationTest
   class HelpPageTest < StaticPagesTest
     
     def setup
-      get '/static_pages/help'
+      get help_path
       super
     end
     
@@ -89,7 +71,7 @@ class StaticPagesTest < ActionDispatch::IntegrationTest
   class LinksPageTest < StaticPagesTest
     
     def setup
-      get '/static_pages/links'
+      get links_path
       super
     end
     
@@ -114,7 +96,7 @@ class StaticPagesTest < ActionDispatch::IntegrationTest
   class ContactPageTest < StaticPagesTest
     
      def setup
-       get '/static_pages/contact'
+       get contact_path
        super
      end
      

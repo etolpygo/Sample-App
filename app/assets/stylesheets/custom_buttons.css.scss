@@ -1,0 +1,20 @@
+@import "color_scheme.css.scss";
+
+/* via http://charliepark.org/bootstrap_buttons/ */ 
+
+.btn-teal {
+  background-color: $teal-medium-light !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$teal-medium-light, endColorstr=$teal-medium);
+  background-image: -khtml-gradient(linear, left top, left bottom, from($teal-medium-light), to($teal-medium));
+  background-image: -moz-linear-gradient(top, $teal-medium-light, $teal-medium);
+  background-image: -ms-linear-gradient(top, $teal-medium-light, $teal-medium);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $teal-medium-light), color-stop(100%, $teal-medium));
+  background-image: -webkit-linear-gradient(top, $teal-medium-light, $teal-medium);
+  background-image: -o-linear-gradient(top, $teal-medium-light, $teal-medium);
+  background-image: linear-gradient($teal-medium-light, $teal-medium);
+  border-color: $teal-medium $teal-medium $teal-medium-dark;
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.26);
+  -webkit-font-smoothing: antialiased;
+}

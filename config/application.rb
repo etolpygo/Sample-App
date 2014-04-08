@@ -26,6 +26,7 @@ module Cs232demo
     
     config.i18n.enforce_available_locales = true
     
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     
   end
 end

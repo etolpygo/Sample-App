@@ -2,53 +2,32 @@ require 'spec_helper'
 
 describe "StaticPages" do
   
-  let(:base_title) { "CS 232 Rails Development" }
+  subject { page }
   
   describe "Welcome page" do
     before do 
-      visit '/welcome/index'
+      visit root_path
     end
     
-    it "should have Hello header" do
-      expect(page).to have_css('h1', text: 'Hello')
-    end
-    it "should have a welcome paragraph" do
-       expect(page).to have_css('p.welcome') 
-    end
-    it "should have the base title" do
-      expect(page).to have_title("#{base_title}")
-    end
-    it "should not have a custom title" do
-      expect(page).not_to have_title("Hello")
-    end
-    it "should have the nav bar" do
-      expect(page).to have_css("ul#nav_menu")
-    end
-  end
-  
-  describe "Static Pages Index page" do
-    before do 
-      visit '/static_pages/index'
-    end
-    it "should have the content 'Static Pages Index'" do
-      expect(page).to have_content('Static Pages Index')
-    end
-    it "should be listed in the nav bar" do
-      within('ul#nav_menu') do
-        page.should have_content('Static Pages Index') 
-      end
-    end
+    it { should have_css('h1', text: 'Hello') }
+    it { should have_css('p.welcome') }
+    it { should have_title(full_title('')) }
+    it { should_not have_title("Hello") }
+    it { should have_css("ul#nav_menu") }
+    it { should have_css("nav#nav-bottom") }
+    
   end
   
   describe "About page" do
     before do 
-      visit '/static_pages/about'
+      visit about_path
     end
-    it "should have the content 'About'" do
-      expect(page).to have_content('About')
-    end
-    it "should be listed in the nav bar" do
-      within('ul#nav_menu') do
+    
+    it { should have_content('About') }
+    it { should have_title(full_title('About')) }
+    
+    it "should be listed in the bottom nav bar" do
+      within('nav#nav-bottom') do
         page.should have_content('About') 
       end
     end
@@ -56,13 +35,14 @@ describe "StaticPages" do
   
   describe "Help page" do
     before do 
-      visit '/static_pages/help'
+      visit help_path
     end
-    it "should have the content 'Help'" do
-      expect(page).to have_content('Help')
-    end
-    it "should be listed in the nav bar" do
-      within('ul#nav_menu') do
+    
+    it { should have_content('Help') }
+    it { should have_title(full_title('Help')) }
+    
+    it "should be listed in the bottom nav bar" do
+      within('nav#nav-bottom') do
         page.should have_content('Help') 
       end
     end
@@ -70,13 +50,14 @@ describe "StaticPages" do
   
   describe "Links page" do
     before do 
-      visit '/static_pages/links'
+      visit links_path
     end
-    it "should have the content 'Links'" do
-      expect(page).to have_content('Links')
-    end
-    it "should be listed in the nav bar" do
-      within('ul#nav_menu') do
+    
+    it { should have_content('Links') }
+    it { should have_title(full_title('Links')) }
+    
+    it "should be listed in the bottom nav bar" do
+      within('nav#nav-bottom') do
         page.should have_content('Links') 
       end
     end
@@ -90,28 +71,20 @@ describe "StaticPages" do
   
   describe "Contact page" do
      before do 
-       visit '/static_pages/contact'
+       visit contact_path
      end
-     it "should be listed in the nav bar" do
-       within('ul#nav_menu') do
+     it "should be listed in the bottom nav bar" do
+       within('nav#nav-bottom') do
          page.should have_content('Contact') 
        end
      end
-     it "should have the base title and 'Contact' as the page title" do
-       page.should have_title("#{base_title} | Contact")
-     end
-     it "should have the content 'CS 232 Contact'" do
-       page.should have_content('CS 232 Contact')
-     end
-     it "should have an h1 heading of class page-title" do
-       page.should have_css('h1.page-title') 
-     end
-     it 'should contain an HTML element named <section class="main">' do
-       page.should have_css('section.main')
-     end
-     it "should contain a .main selector" do
-       page.should have_selector('.main')
-     end
+     
+     it { should have_title(full_title('Contact')) }
+     it { should have_content('CS 232 Contact') }
+     it { should have_css('h1.page-title') }
+     it { should have_css('section.main') }
+     it { should have_selector('.main') }
+     
      it "should contain a Definition List with a <dl>" do
        within('section.main') do
          page.should have_xpath('//dl')
