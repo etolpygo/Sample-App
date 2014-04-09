@@ -4,63 +4,50 @@ describe "StaticPages" do
   
   subject { page }
   
-  describe "Welcome page" do
-    before do 
-      visit root_path
+  shared_examples_for "all static pages" do
+    it { should have_selector('h1', text: heading) }
+    it { should have_title(full_title(page_title)) }
+    it "should be listed in the bottom nav bar" do
+      within('nav#nav-bottom') do
+        page.should have_content(page_title) 
+      end
     end
+  end
+  
+  describe "Welcome page" do
+    before { visit root_path }
+    let(:heading)    { 'Hello' }
+    let(:page_title) { '' }
     
-    it { should have_css('h1', text: 'Hello') }
+    it_should_behave_like "all static pages"
     it { should have_css('p.welcome') }
-    it { should have_title(full_title('')) }
     it { should_not have_title("Hello") }
     it { should have_css("ul#nav_menu") }
     it { should have_css("nav#nav-bottom") }
-    
   end
   
   describe "About page" do
-    before do 
-      visit about_path
-    end
+    before { visit about_path }
+    let(:heading)    { 'About' }
+    let(:page_title) { 'About' }
     
-    it { should have_content('About') }
-    it { should have_title(full_title('About')) }
-    
-    it "should be listed in the bottom nav bar" do
-      within('nav#nav-bottom') do
-        page.should have_content('About') 
-      end
-    end
+    it_should_behave_like "all static pages"
   end
   
   describe "Help page" do
-    before do 
-      visit help_path
-    end
+    before { visit help_path }
+    let(:heading)    { 'Help' }
+    let(:page_title) { 'Help' }
     
-    it { should have_content('Help') }
-    it { should have_title(full_title('Help')) }
-    
-    it "should be listed in the bottom nav bar" do
-      within('nav#nav-bottom') do
-        page.should have_content('Help') 
-      end
-    end
+    it_should_behave_like "all static pages"
   end
   
   describe "Links page" do
-    before do 
-      visit links_path
-    end
+    before { visit links_path }
+    let(:heading)    { 'Links' }
+    let(:page_title) { 'Links' }
     
-    it { should have_content('Links') }
-    it { should have_title(full_title('Links')) }
-    
-    it "should be listed in the bottom nav bar" do
-      within('nav#nav-bottom') do
-        page.should have_content('Links') 
-      end
-    end
+    it_should_behave_like "all static pages"
     it "should have an unordered list of at least two links" do
       within('div#main') do
         page.should have_css('ul.links_list') 
@@ -70,16 +57,11 @@ describe "StaticPages" do
   end
   
   describe "Contact page" do
-     before do 
-       visit contact_path
-     end
-     it "should be listed in the bottom nav bar" do
-       within('nav#nav-bottom') do
-         page.should have_content('Contact') 
-       end
-     end
+     before { visit contact_path } 
+     let(:heading)    { 'CS 232 Contact' }
+     let(:page_title) { 'Contact' }
      
-     it { should have_title(full_title('Contact')) }
+     it_should_behave_like "all static pages"
      it { should have_content('CS 232 Contact') }
      it { should have_css('h1.page-title') }
      it { should have_css('section.main') }
@@ -100,8 +82,22 @@ describe "StaticPages" do
          page.should have_xpath('//dd')
        end
      end
-
-  
    end
+   
+   it "should have the right links on the layout" do
+       visit root_path
+       click_link "About"
+       expect(page).to have_title(full_title('About'))
+       click_link "Links"
+        expect(page).to have_title(full_title('Links'))
+       click_link "Contact"
+       expect(page).to have_title(full_title('Contact'))
+       click_link "Help"
+       expect(page).to have_title(full_title('Help'))
+       click_link "Sign up"
+       expect(page).to have_title(full_title('Sign up'))
+       click_link "sample app"
+       expect(page).to have_title(full_title(''))
+     end
  
 end
