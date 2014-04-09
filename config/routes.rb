@@ -1,11 +1,9 @@
 Cs232demo::Application.routes.draw do
   
-  # resources :microposts
-  # resources :users
-
   root  'static_pages#home'
   
-  get "users/new"
+  resources :microposts
+  resources :users
   match '/signup',  to: 'users#new',            via: 'get'
   
   match '/help',    to: 'static_pages#help',    via: 'get'

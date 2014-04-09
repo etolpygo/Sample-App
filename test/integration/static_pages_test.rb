@@ -30,6 +30,9 @@ class StaticPagesTest < ActionDispatch::IntegrationTest
     test "page has the nav bar" do
       assert_tag :ul, attributes: { id: 'nav_menu' }
     end
+    test "page has bottom nav bar" do
+      assert_tag :nav, attributes: { id: 'nav-bottom' }
+    end
     
   end
   
@@ -46,7 +49,7 @@ class StaticPagesTest < ActionDispatch::IntegrationTest
     end
     test "page is listed in the nav bar" do
       assert_tag :li, :content => 'About',
-        :ancestor => { :tag => "ul", :attributes => { :id => "nav_menu" } }
+        :ancestor => { :tag => "nav", :attributes => { :id => "nav-bottom" } }
     end
   end
   
@@ -63,7 +66,7 @@ class StaticPagesTest < ActionDispatch::IntegrationTest
     end
     test "page is listed in the nav bar" do
       assert_tag :li, :content => 'Help',
-        :ancestor => { :tag => "ul", :attributes => { :id => "nav_menu" } }
+        :ancestor => { :tag => "nav", :attributes => { :id => "nav-bottom" } }
     end
   end
   
@@ -80,7 +83,7 @@ class StaticPagesTest < ActionDispatch::IntegrationTest
     end
     test "page is listed in the nav bar" do
       assert_tag :li, :content => 'Links',
-        :ancestor => { :tag => "ul", :attributes => { :id => "nav_menu" } }
+        :ancestor => { :tag => "nav", :attributes => { :id => "nav-bottom" } }
     end
     test "page has an unordered list of at least two links" do
       assert_tag :tag => "ul", 
@@ -102,7 +105,7 @@ class StaticPagesTest < ActionDispatch::IntegrationTest
      
      test "page is listed in the nav bar" do
        assert_tag :li, :content => 'Contact',
-         :ancestor => { :tag => "ul", :attributes => { :id => "nav_menu" } }
+         :ancestor => { :tag => "nav", :attributes => { :id => "nav-bottom" } }
      end
      test "page has the base title" do
        assert_tag :title, :content => "#{@base_title} | Contact"
