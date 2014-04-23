@@ -3,7 +3,11 @@
 john:
   name: john
   email: john@example.com
+  password: baz-bar-foo
+  password_confirmation: baz-bar-foo
 
 ron:
   name: ron
   email: ron@example.com
+  password: foo-baz-bar
+  password_confirmation: foo-baz-bar

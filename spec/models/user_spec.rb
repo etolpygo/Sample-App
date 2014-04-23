@@ -3,7 +3,7 @@ require 'spec_helper'
 describe User do
 
   before do 
-    @user = User.new(name: "Example User", email: "user@example.com", password: "foo-bar-baz", password_confirmation: "foo-bar-baz") 
+    @user = FactoryGirl.build(:user)
   end
 
   subject { @user }
@@ -19,17 +19,17 @@ describe User do
   
   describe "when name is not present" do
     before { @user.name = ' ' }
-    it { should_not be_valid }
+    specify { expect(@user).not_to be_valid }
   end
   
   describe "when name is too long" do
     before { @user.name = "b" * 51 }
-    it { should_not be_valid }
+    specify { expect(@user).not_to be_valid }
   end
   
   describe "when email is not present" do
     before { @user.email = ' ' }
-    it { should_not be_valid }
+    specify { expect(@user).not_to be_valid }
   end
   
   describe "when email format is invalid" do
@@ -65,17 +65,17 @@ describe User do
     before do
       @user = User.new(name: "Example User", email: "user@example.com", password: " ", password_confirmation: " ")
     end
-    it { should_not be_valid }
+    specify { expect(@user).not_to be_valid }
   end
   
   describe "when password doesn't match confirmation" do
     before { @user.password_confirmation = "mismatch" }
-    it { should_not be_valid }
+    specify { expect(@user).not_to be_valid }
   end
   
   describe "with a password that's too short" do
     before { @user.password = @user.password_confirmation = "b" * 5 }
-    it { should be_invalid }
+    specify { expect(@user).not_to be_valid }
   end
   
   describe "return value of authenticate method" do
@@ -83,14 +83,17 @@ describe User do
     let(:found_user) { User.find_by(email: @user.email) }
     
     describe "with valid password" do
-      it { should eq found_user.authenticate(@user.password) }
+      it "finds the correct user" do
+        expect(@user).to eq(found_user.authenticate(@user.password))
+      end
     end
     
     describe "with invalid password" do
       let(:user_for_invalid_password) { found_user.authenticate("invalid") }
-      
-      it { should_not eq user_for_invalid_password }
-      specify { expect(user_for_invalid_password).to be_false }
+      it "does not find the user" do
+        expect(@user).not_to eq(user_for_invalid_password)
+        expect(user_for_invalid_password).to be_false
+      end
     end
   end
   

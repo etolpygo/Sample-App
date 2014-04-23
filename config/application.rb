@@ -28,5 +28,7 @@ module Cs232demo
     
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     
+    config.generators.test_framework false
+    
   end
 end
