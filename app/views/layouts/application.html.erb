@@ -12,9 +12,7 @@
 		<%= render :partial => 'layouts/menu_header'  %>
 		<div id="main">
 			<% flash.each do |key, value| %>
-				<div class="alert alert-<%= key %>">
-					<%= value %>
-				</div>
+				<%= content_tag(:div, value, class: "alert alert-#{key}") %>
 			<% end %>
 			<%= yield %>
 			<div id="push"></div>
