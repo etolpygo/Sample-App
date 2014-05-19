@@ -76,6 +76,8 @@ header {
 					float: none; 
 					display: block;
 				}
+				li.divider { 	background-color: $beige-light;
+				 				border: 1px solid $beige-light; }
 			}
 		}
 	}

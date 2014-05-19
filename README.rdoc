@@ -1,28 +1,15 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a sample application created by following Michael Hartl's Ruby on Rails Tutorial (with very minor modifications), with motivation & guidance courtesy of Douglas Putnam's Rails course at City College of San Francisco.
 
-Things you may want to cover:
+This project uses:
 
-* Ruby version
+* Ruby version 2.0
 
-* System dependencies
+* Rails 4.0
 
-* Configuration
+* Bootstrap 2.3
 
-* Database creation
+* Some Google fonts
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+I can't imagine why anybody would want to fork this, but you're welcome to do so.

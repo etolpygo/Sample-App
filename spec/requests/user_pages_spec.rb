@@ -30,7 +30,7 @@ describe "User pages" do
         describe "after submission" do
           before { click_button submit }
           specify { expect(page).to have_title('Sign up') }
-          specify { expect(page).to have_content('error') }
+          specify { expect(page).to have_error_message(/The form contains \d error/) }
         end
       end
 
@@ -48,7 +48,8 @@ describe "User pages" do
         describe "after saving the user" do
           before { click_button submit }
           let(:user) { User.find_by(email: 'user@example.com') }
-
+          
+          specify { expect(page).to have_link('Sign out') }
           specify { expect(page).to have_title(user.name) }
           specify { expect(page).to have_selector('div.alert.alert-success', text: 'Welcome') }
         end
