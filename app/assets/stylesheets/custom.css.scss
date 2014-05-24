@@ -141,7 +141,7 @@ footer {
 aside {
   section {
     padding: 10px 0;
-    border-top: 1px solid $grayLighter;
+    border-top: 1px solid $teal-light;
     &:first-child {
       border: 0;
       padding-top: 0;
@@ -162,6 +162,35 @@ aside {
 .gravatar {
   float: left;
   margin-right: 10px;
+}
+
+.stats {
+  overflow: auto;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $teal-light;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: $teal-medium;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
 }
 
 /* forms */
@@ -228,7 +257,7 @@ input {
   display: block;
 }
 .timestamp {
-  color: $grayLight;
+  color: $teal-medium-light;
 }
 .gravatar {
   float: left;

@@ -3,13 +3,19 @@
 	<aside class="span4">
 	  <section>
 	    <h1>
-	      <%= gravatar_for @user, options = { size: 100 } %>
+	      <%= gravatar_for @user, options = { size: 75 } %>
 	      <%= @user.name %>
 	    </h1>
 	  </section>
+	  <section>
+	      <%= render 'shared/stats' %>
+	  </section>
 	</aside>
-
-	<div class="span8">
+	<div class="span1">
+		&nbsp;
+    </div>
+	<div class="span4">
+	   <%= render 'follow_form' if signed_in? %>
 	   <% if @user.microposts.any? %>
 	     <h3>Microposts (<%= @user.microposts.count %>)</h3>
 	     <ol class="microposts">
