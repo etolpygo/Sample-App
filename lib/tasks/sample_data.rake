@@ -3,8 +3,9 @@ namespace :db do
   task populate: :environment do
     User.create!(name: "Example User",
                  email: "example@allsparks.com",
-                 password: "foobar",
-                 password_confirmation: "foobar")
+                 password: "barfoo",
+                 password_confirmation: "barfoo",
+                 admin: true)
     99.times do |n|
       name  = Faker::Name.name
       email = "example-#{n+1}@allsparks.com"

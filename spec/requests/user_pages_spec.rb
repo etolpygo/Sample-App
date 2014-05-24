@@ -24,14 +24,40 @@ describe "User pages" do
           expect(page).to have_selector('li', text: user.name)
         end
       end
-    end
+      
+    end # end describe "pagination"
 
-    it "should list each user" do
-      User.all.each do |user|
-        expect(page).to have_selector('li', text: user.name)
+    # it "should list each user" do
+    #   User.all.each do |user|
+    #     expect(page).to have_selector('li', text: user.name)
+    #   end
+    # end
+    
+    
+    describe "delete links" do
+
+      specify { expect(page).not_to have_link('delete') }
+
+      describe "as an admin user" do
+        let(:admin) { FactoryGirl.create(:admin) }
+        before do
+          sign_in admin
+          visit users_path
+        end
+
+        specify { expect(page).to have_link('delete', href: user_path(User.first)) }
+        it "should be able to delete another user" do
+          expect do
+            click_link('delete', match: :first)
+          end.to change(User, :count).by(-1)
+        end
+        specify { expect(page).not_to have_link('delete', href: user_path(admin)) }
       end
-    end
-  end
+    end # end describe "delete links"
+        
+  end # end index
+  
+######################################
   
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
@@ -41,6 +67,8 @@ describe "User pages" do
     specify { expect(page).to have_title(user.name) }
   end
 
+######################################
+
   describe "signup page" do
     before { visit signup_path }
 
@@ -48,15 +76,17 @@ describe "User pages" do
     specify { expect(page).to have_title(full_title('Sign up')) }
   end
   
+######################################
+  
   describe "signup" do
-
+  
     before { visit signup_path }
-
+  
     let(:submit) { "Create my account" }
-
+  
     describe "with invalid information" do
       it "should not create a user" do
-        expect { click_button submit }.not_to change(User, :count)
+        expect{ click_button submit }.not_to change(User, :count)
       end
       describe "after submission" do
         before { click_button submit }
@@ -64,7 +94,7 @@ describe "User pages" do
         specify { expect(page).to have_error_message(/The form contains \d error/) }
       end
     end
-
+  
     describe "with valid information" do
       before do
         fill_in "Name",         with: "Example User"
@@ -72,7 +102,7 @@ describe "User pages" do
         fill_in "Password",     with: "foobar"
         fill_in "Confirmation", with: "foobar"
       end
-
+  
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
       end
@@ -84,46 +114,51 @@ describe "User pages" do
         specify { expect(page).to have_title(user.name) }
         specify { expect(page).to have_selector('div.alert.alert-success', text: 'Welcome') }
       end
-    end
-  end
-
-
-  describe "edit" do
-      let(:user) { FactoryGirl.create(:user) }
-      before do
-        sign_in user
-        visit edit_user_path(user)
-      end
-
-      describe "edit page" do
-        specify { expect(page).to have_content("Update your profile") }
-        specify { expect(page).to have_title("Edit user") }
-        specify { expect(page).to have_link('change', href: 'http://gravatar.com/emails') }
-      end
-
-      describe "submit with invalid information" do
-        before { click_button "Save changes" }
-        specify { expect(page).to have_title("Edit user") }
-        specify { expect(page).to have_error_message(/The form contains \d error/) }
-      end
       
-      describe "with valid information" do
-        let(:new_name)  { "New Name" }
-        let(:new_email) { "new@example.com" }
-        before do
-          fill_in "Name",             with: new_name
-          fill_in "Email",            with: new_email
-          fill_in "Password",         with: user.password
-          fill_in "Confirm Password", with: user.password
-          click_button "Save changes"
-        end
-
-        specify { expect(page).to have_title(new_name) }
-        specify { expect(page).to have_selector('div.alert.alert-success') }
-        specify { expect(page).to have_link('Sign out', href: signout_path) }
-        specify { expect(user.reload.name).to  eq new_name }
-        specify { expect(user.reload.email).to eq new_email }
-      end
+    end # end describe "with valid information"
+    
+  end # end describe "signup"
+   
+######################################
+    
+  describe "edit" do
+    let(:user) { FactoryGirl.create(:user) }
+    before do
+      sign_in user
+      visit edit_user_path(user)
     end
 
-end
+    describe "edit page" do
+      specify { expect(page).to have_content("Update your profile") }
+      specify { expect(page).to have_title("Edit user") }
+      specify { expect(page).to have_link('change', href: 'http://gravatar.com/emails') }
+    end
+
+    describe "submit with invalid information" do
+      before { click_button "Save changes" }
+      specify { expect(page).to have_title("Edit user") }
+      specify { expect(page).to have_error_message(/The form contains \d error/) }
+    end
+    
+    describe "with valid information" do
+      let(:new_name)  { "New Name" }
+      let(:new_email) { "new@example.com" }
+      before do
+        fill_in "Name",             with: new_name
+        fill_in "Email",            with: new_email
+        fill_in "Password",         with: user.password
+        fill_in "Confirm Password", with: user.password
+        click_button "Save changes"
+      end
+
+      specify { expect(page).to have_title(new_name) }
+      specify { expect(page).to have_selector('div.alert.alert-success') }
+      specify { expect(page).to have_link('Sign out', href: signout_path) }
+      specify { expect(user.reload.name).to  eq new_name }
+      specify { expect(user.reload.email).to eq new_email }
+      
+    end # end describe "with valid information"
+    
+  end # end edit
+  
+end # end describe "User pages"
