@@ -61,11 +61,21 @@ describe "User pages" do
   
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
+    let!(:m1) { FactoryGirl.create(:micropost, user: user, content: "Foo") }
+    let!(:m2) { FactoryGirl.create(:micropost, user: user, content: "Bar") }
+
     before { visit user_path(user) }
-    
+
     specify { expect(page).to have_content(user.name) }
     specify { expect(page).to have_title(user.name) }
-  end
+
+    describe "microposts" do
+      specify { expect(page).to have_content(m1.content) }
+      specify { expect(page).to have_content(m2.content) }
+      specify { expect(page).to have_content(user.microposts.count) }
+    end
+
+  end # end describe "profile page"
 
 ######################################
 

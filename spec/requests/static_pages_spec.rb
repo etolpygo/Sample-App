@@ -24,6 +24,22 @@ describe "StaticPages" do
     it { should_not have_title("Hello") }
     it { should have_css("ul#nav_menu") }
     it { should have_css("nav#nav-bottom") }
+    
+    describe "for signed-in users" do
+      let(:user) { FactoryGirl.create(:user) }
+      before do
+        FactoryGirl.create(:micropost, user: user, content: "Lorem ipsum")
+        FactoryGirl.create(:micropost, user: user, content: "Dolor sit amet")
+        sign_in user
+        visit root_path
+      end
+
+      it "should render the user's feed" do
+        user.feed.each do |item|
+          expect(page).to have_selector("li##{item.id}", text: item.content)
+        end
+      end
+    end
   end
   
   describe "About page" do

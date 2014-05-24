@@ -1,4 +1,26 @@
 <h1>Hello</h1>
-<p class="welcome">Basic app created by following Michael Hartl's <a href="http://ruby.railstutorial.org/" target="_blank">Ruby on Rails Tutorial</a>, with motivation &amp; guidance courtesy of <a href="http://hackingthevalley.com/" target="_blank">Douglas Putnam</a>'s Rails course at <a href="http://www.ccsf.edu/NEW/" target="_blank">City College of San Francisco</a>.</p>
+<% if signed_in? %>
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+	<div class="span1">
+		&nbsp;
+    </div>
+	<div class="span4">
+      <h3>Micropost Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
 
-<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-teal" %>
+	<p class="welcome">Basic app created by following Michael Hartl's <a href="http://ruby.railstutorial.org/" target="_blank">Ruby on Rails Tutorial</a>, with motivation &amp; guidance courtesy of <a href="http://hackingthevalley.com/" target="_blank">Douglas Putnam</a>'s Rails course at <a href="http://www.ccsf.edu/NEW/" target="_blank">City College of San Francisco</a>.</p>
+
+	<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-teal" %>
+
+<% end %>
