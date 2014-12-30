@@ -1,6 +1,6 @@
 == README
 
-This is a sample application created by following Michael Hartl's Ruby on Rails Tutorial (with very minor modifications), with motivation & guidance courtesy of Douglas Putnam's Rails course at City College of San Francisco.
+This is a sample application created by following Michael Hartl's Ruby on Rails Tutorial (with minor modifications), as taught in Douglas Putnam's Rails course at City College of San Francisco.
 
 This project uses:
 
@@ -11,5 +11,3 @@ This project uses:
 * Bootstrap 2.3
 
 * Some Google fonts
-
-I can't imagine why anybody would want to fork this, but you're welcome to do so.
